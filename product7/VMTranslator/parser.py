@@ -1,3 +1,5 @@
+from constants import *
+
 class Parser():
     def __init__(self, filepath):
         self.current_command = None
@@ -28,3 +30,33 @@ class Parser():
                 self.current_command = line.split()  # スペースで区切って配列に
                 return self.current_command
 
+    def commandType(self):
+        comand = self.current_command[0]
+        if comand == "push":
+            return C_PUSH
+        elif comand == "pop":
+            return C_POP
+        elif comand == "label":
+            return C_LABEL
+        elif comand == "goto":
+            return C_GOTO
+        elif comand == "if-goto":
+            return C_IF
+        elif comand == "function":
+            return C_FUNCTION
+        elif comand == "return":
+            return C_RETURN
+        elif comand == "call":
+            return C_CALL
+        elif comand in ['add', 'sub', 'neg', 'eq', 'gt', 'lt', 'and', 'or', 'not']:
+            return C_ARITHMETIC
+
+    def arg1(self):
+        if self.command_type() == C_ARITHMETIC:
+            return self.current_command[0]
+        else:
+            return self.current_command[1]
+
+    def arg2(self):
+        if self.command_type() in [C_PUSH, C_POP, C_FUNCTION, C_CALL]:
+            return self.current_command[2]
