@@ -52,11 +52,11 @@ class Parser():
             return C_ARITHMETIC
 
     def arg1(self):
-        if self.command_type() == C_ARITHMETIC:
+        if self.commandType() == C_ARITHMETIC:
             return self.current_command[0]
         else:
             return self.current_command[1]
 
     def arg2(self):
-        if self.command_type() in [C_PUSH, C_POP, C_FUNCTION, C_CALL]:
+        if self.commandType() in [C_PUSH, C_POP, C_FUNCTION, C_CALL]:
             return self.current_command[2]

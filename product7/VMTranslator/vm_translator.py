@@ -26,9 +26,9 @@ def translate(file_path, code_writer):
             print(parser.current_command)
             if parser.commandType() == C_ARITHMETIC:
                 code_writer.writeArithmetic(parser.arg1())
-            elif parser.command_type() == C_PUSH:
+            elif parser.commandType() == C_PUSH:
                 code_writer.write_push_pop(C_PUSH, parser.arg1(), parser.arg2())
-            elif parser.command_type() == C_POP:
+            elif parser.commandType() == C_POP:
                 code_writer.write_push_pop(C_POP, parser.arg1(), parser.arg2())
 
             parser.advance()
