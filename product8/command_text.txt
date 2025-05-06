@@ -1,4 +1,4 @@
-uv run VMTranslator/vm_translator.py SimpleAdd/SimpleAdd.vm
+uv run VMTranslator/vm_translator.py simpleAdd/SimpleAdd.vm
 uv run VMTranslator/vm_translator.py StackTest/StackTest.vm
 uv run VMTranslator/vm_translator.py BasicTest/BasicTest.vm
 uv run VMTranslator/vm_translator.py PointerTest/PointerTest.vm
