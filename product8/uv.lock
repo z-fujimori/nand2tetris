@@ -1,7 +1,18 @@
 version = 1
 requires-python = ">=3.11"
 
+[manifest]
+members = [
+    "product8",
+    "vm",
+]
+
 [[package]]
 name = "product8"
 version = "0.1.0"
 source = { virtual = "." }
+
+[[package]]
+name = "vm"
+version = "0.1.0"
+source = { virtual = "vm" }

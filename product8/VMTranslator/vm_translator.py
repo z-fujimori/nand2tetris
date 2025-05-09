@@ -15,6 +15,7 @@ def main():
     if path.endswith(".vm"):  # 末尾が.vmかを確認してファイルとフォルダ判別
         asm_path = path[:-3] + ".asm"
         with CodeWriter(asm_path) as code_writer:
+            print("コード開始")
             translate(path, code_writer)
 
 def translate(file_path, code_writer):
