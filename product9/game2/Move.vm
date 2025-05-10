@@ -1,0 +1,125 @@
+function Move.new 0
+    push constant 3
+    call Memory.alloc 1
+    pop pointer 0
+    push constant 0
+    pop this 0
+    push constant 0
+    pop this 1
+    push pointer 0
+    return
+function Move.run 2
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop local 1
+label Move_0
+    push local 1
+    not
+    not
+    if-goto Move_1
+    call Keyboard.keyPressed 0
+    pop local 0
+    push local 0
+    push constant 113
+    eq
+    not
+    if-goto Move_3
+    push constant 1
+    neg
+    pop local 1
+    goto Move_2
+label Move_3
+label Move_2
+    push local 0
+    push constant 130
+    eq
+    not
+    if-goto Move_5
+    push this 0
+    push this 1
+    call Drow.del 2
+    pop temp 0
+    push this 0
+    push constant 1
+    sub
+    pop this 0
+    push this 0
+    push this 1
+    call Drow.draw 2
+    pop temp 0
+    goto Move_4
+label Move_5
+label Move_4
+    push local 0
+    push constant 131
+    eq
+    not
+    if-goto Move_7
+    push this 0
+    push this 1
+    call Drow.del 2
+    pop temp 0
+    push this 1
+    push constant 0
+    gt
+    not
+    if-goto Move_9
+    push this 1
+    push constant 1
+    sub
+    pop this 1
+    goto Move_8
+label Move_9
+label Move_8
+    push this 0
+    push this 1
+    call Drow.draw 2
+    pop temp 0
+    goto Move_6
+label Move_7
+label Move_6
+    push local 0
+    push constant 132
+    eq
+    not
+    if-goto Move_11
+    push this 0
+    push this 1
+    call Drow.del 2
+    pop temp 0
+    push this 0
+    push constant 1
+    add
+    pop this 0
+    push this 0
+    push this 1
+    call Drow.draw 2
+    pop temp 0
+    goto Move_10
+label Move_11
+label Move_10
+    push local 0
+    push constant 133
+    eq
+    not
+    if-goto Move_13
+    push this 0
+    push this 1
+    call Drow.del 2
+    pop temp 0
+    push this 1
+    push constant 1
+    add
+    pop this 1
+    push this 0
+    push this 1
+    call Drow.draw 2
+    pop temp 0
+    goto Move_12
+label Move_13
+label Move_12
+    goto Move_0
+label Move_1
+    push constant 0
+    return

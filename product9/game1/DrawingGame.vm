@@ -1,0 +1,194 @@
+function DrawingGame.new 0
+    push constant 2
+    call Memory.alloc 1
+    pop pointer 0
+    push constant 0
+    push constant 0
+    push constant 5
+    call Pen.new 3
+    pop this 0
+    push pointer 0
+    return
+function DrawingGame.dispose 0
+    push argument 0
+    pop pointer 0
+    push this 0
+    call Pen.dispose 1
+    pop temp 0
+    push pointer 0
+    call Memory.deAlloc 1
+    pop temp 0
+    push constant 0
+    return
+function DrawingGame.run 2
+    push argument 0
+    pop pointer 0
+    push constant 0
+    pop local 1
+label DrawingGame_0
+    push local 1
+    not
+    not
+    if-goto DrawingGame_1
+label DrawingGame_2
+    push local 0
+    push constant 0
+    eq
+    not
+    if-goto DrawingGame_3
+    call Keyboard.keyPressed 0
+    pop local 0
+    push local 0
+    push constant 90
+    eq
+    not
+    if-goto DrawingGame_5
+    push this 0
+    call Pen.decSize 1
+    pop temp 0
+    goto DrawingGame_4
+label DrawingGame_5
+label DrawingGame_4
+    push local 0
+    push constant 88
+    eq
+    not
+    if-goto DrawingGame_7
+    push this 0
+    call Pen.incSize 1
+    pop temp 0
+    goto DrawingGame_6
+label DrawingGame_7
+label DrawingGame_6
+    goto DrawingGame_2
+label DrawingGame_3
+label DrawingGame_8
+    push local 0
+    push constant 0
+    eq
+    not
+    not
+    if-goto DrawingGame_9
+    call Keyboard.keyPressed 0
+    pop local 0
+    push local 0
+    push constant 81
+    eq
+    not
+    if-goto DrawingGame_11
+    push constant 1
+    neg
+    pop local 1
+    goto DrawingGame_10
+label DrawingGame_11
+label DrawingGame_10
+    push local 0
+    push constant 131
+    eq
+    not
+    if-goto DrawingGame_13
+    push constant 1
+    pop this 1
+    push pointer 0
+    call DrawingGame.movePen 1
+    pop temp 0
+    goto DrawingGame_12
+label DrawingGame_13
+label DrawingGame_12
+    push local 0
+    push constant 133
+    eq
+    not
+    if-goto DrawingGame_15
+    push constant 2
+    pop this 1
+    push pointer 0
+    call DrawingGame.movePen 1
+    pop temp 0
+    goto DrawingGame_14
+label DrawingGame_15
+label DrawingGame_14
+    push local 0
+    push constant 130
+    eq
+    not
+    if-goto DrawingGame_17
+    push constant 3
+    pop this 1
+    push pointer 0
+    call DrawingGame.movePen 1
+    pop temp 0
+    goto DrawingGame_16
+label DrawingGame_17
+label DrawingGame_16
+    push local 0
+    push constant 132
+    eq
+    not
+    if-goto DrawingGame_19
+    push constant 4
+    pop this 1
+    push pointer 0
+    call DrawingGame.movePen 1
+    pop temp 0
+    goto DrawingGame_18
+label DrawingGame_19
+label DrawingGame_18
+    goto DrawingGame_8
+label DrawingGame_9
+    goto DrawingGame_0
+label DrawingGame_1
+    push constant 0
+    return
+function DrawingGame.movePen 0
+    push argument 0
+    pop pointer 0
+    push this 1
+    push constant 1
+    eq
+    not
+    if-goto DrawingGame_21
+    push this 0
+    call Pen.moveUp 1
+    pop temp 0
+    goto DrawingGame_20
+label DrawingGame_21
+label DrawingGame_20
+    push this 1
+    push constant 2
+    eq
+    not
+    if-goto DrawingGame_23
+    push this 0
+    call Pen.moveDown 1
+    pop temp 0
+    goto DrawingGame_22
+label DrawingGame_23
+label DrawingGame_22
+    push this 1
+    push constant 3
+    eq
+    not
+    if-goto DrawingGame_25
+    push this 0
+    call Pen.moveLeft 1
+    pop temp 0
+    goto DrawingGame_24
+label DrawingGame_25
+label DrawingGame_24
+    push this 1
+    push constant 4
+    eq
+    not
+    if-goto DrawingGame_27
+    push this 0
+    call Pen.moveRight 1
+    pop temp 0
+    goto DrawingGame_26
+label DrawingGame_27
+label DrawingGame_26
+    push constant 10
+    call Sys.wait 1
+    pop temp 0
+    push constant 0
+    return

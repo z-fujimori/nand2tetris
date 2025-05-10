@@ -1,0 +1,12 @@
+class Main {
+     
+    function void main () {
+        var Move point;
+
+        do Drow.draw(0,0);
+        let point = Move.new();
+        do point.run();
+        
+        return;
+    }
+}

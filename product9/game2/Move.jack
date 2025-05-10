@@ -1,0 +1,51 @@
+class Move {
+
+    field int x;
+    field int y;
+    field Drow drow;
+
+    constructor void new() {
+        let x = 0;
+        let y = 0;
+
+        return this;
+    }
+    
+    method  void run() {
+        var char key;
+        var boolean exit;
+
+        let exit = false;
+
+        while (~exit) {
+            let key = Keyboard.keyPressed();
+
+            if (key = 113) {
+                let exit = true;
+            }
+            if (key = 130) {
+                do Drow.del(x, y);
+                let x = x - 1;
+                do Drow.draw(x, y); 
+            }
+            if (key = 131) {
+                do Drow.del(x, y);
+                if (y > 0) {
+                    let y = y - 1;
+                }
+                do Drow.draw(x, y); 
+            }
+            if (key = 132) {
+                do Drow.del(x, y);
+                let x = x + 1; 
+                do Drow.draw(x, y); 
+            }
+            if (key = 133) {
+                do Drow.del(x, y);
+                let y = y + 1;
+                do Drow.draw(x, y); 
+            }
+        }
+        return;
+    }
+}
